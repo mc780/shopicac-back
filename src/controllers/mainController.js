@@ -14,9 +14,9 @@ module.exports = {
     },
 
     getProductsInicio: async (req, res) => {
-        const productIds = (1, 5, 9, 17);
+        const productIds = [1, 5, 9, 16];
         try {
-            const query = (`SELECT p.id, p.titulo, p.precio, p.imagen, c.nombre AS nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria = c.id WHERE p.id IN (?);`);
+            const query = (`SELECT p.id, p.titulo, p.precio, p.imagen, c.nombre AS nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria = c.id WHERE p.id IN (?)`);
             const result = await conn.query(query, [productIds]);
             res.json(result)
         } catch (error) {

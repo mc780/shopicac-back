@@ -17,7 +17,6 @@ document.querySelector('body').onload = async () => {
                 </div>
              </div>
             `;
-        //listaHTML.appendChild(nuevoProducto);
     });
 };
 

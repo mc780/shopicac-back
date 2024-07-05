@@ -1,4 +1,6 @@
 const express = require("express");
+const override = require('method-override')
+const rutas = require('./src/routes/mainRoutes.js')
 const morgan = require("morgan");
 const path = require('path');
 const cors = require("cors");
@@ -6,7 +8,10 @@ const cors = require("cors");
 const app = express();
 const port = 4000;
 
+
 // Middleware
+app.use('/', rutas)
+
 app.use(cors({
   origin: ["http://127.0.0.1:5501", "http://127.0.0.1:5500"]
 }));

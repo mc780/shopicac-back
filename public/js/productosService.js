@@ -1,14 +1,12 @@
 document.querySelector('body').onload = async () => {
-    const res = await fetch(`http://localhost:4000/getAllProducts`)
-    const datos = await res.json()
+  const res = await fetch(`http://localhost:4000/getAllProducts`)
+  const datos = await res.json()
 
-    let listaHTML = document.querySelector(`#cards`)
-    listaHTML.innerHTML = ''
-    datos.forEach(producto => {
-        const nuevoProducto = document.createElement("div");
-        nuevoProducto.classList.add("producto");
-
-        nuevoProducto.innerHTML += `
+  let listaHTML = document.querySelector(`#cards`)
+  listaHTML.innerHTML = ''
+  datos.forEach(producto => {
+    listaHTML.innerHTML += `
+        <div class="producto">
         <img src="${producto.imagen}" class="card-img-top h-50" alt="${producto.titulo} image">
   
         <div class="card-body d-flex flex-column justify-content-between p-2">
@@ -27,6 +25,7 @@ document.querySelector('body').onload = async () => {
                 </button>
               </div>
             </div>
+            </div>
       `;
-    });
+  });
 };
